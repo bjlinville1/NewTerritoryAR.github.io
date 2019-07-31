@@ -34,18 +34,24 @@
     xrweb
     >
 
+
+    <a-assets>
    
-      <a-video
+      <video
         id="currentVideo"
-        src = "https://video.wixstatic.com/video/53058a_4be086c8dca346a7893b9eaa7e8b1e02/720p/mp4/file.mp4"
         autoplay="false"
         crossorigin="anonymous"
         loop="false"
-        >
-      </a-video>
+        src = "https://video.wixstatic.com/video/53058a_4be086c8dca346a7893b9eaa7e8b1e02/720p/mp4/file.mp4">
+      </video>
 
-   
-
+    </a-assets>
+      <a-video 
+      src="#currentVideo" 
+      width="720"
+      height="1280"> 
+     </a-video>
+    
     <a-camera
       position="0 4 10"
       raycaster="objects: .cantap"
