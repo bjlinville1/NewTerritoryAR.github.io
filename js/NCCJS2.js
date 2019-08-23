@@ -1,0 +1,1 @@
+XR.XrController.configure({imageTargets:['Anson','Cori','Daniel','Eleanor','Jessica','Joshua']})
