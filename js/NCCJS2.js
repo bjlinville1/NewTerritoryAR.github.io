@@ -1,4 +1,6 @@
-XR.XrController.configure({imageTargets:['Anson','Cori','Daniel','Eleanor','Jessica','Joshua']})
+XR.XrController.configure({imageTargets:['Anson','Cori','Daniel','Eleanor','Jessica','Joshua']});
+
+var video = document.getElementById("currentVideo");
 
 AFRAME.registerComponent('target-manager', {
   init: function() {
@@ -8,6 +10,7 @@ AFRAME.registerComponent('target-manager', {
 	  
 	  if (visible['Anson'] && visible['Cori']) {
 	  	console.log('Both targets are visible')
+	  	video.play();
 	  }
 	})
 	
