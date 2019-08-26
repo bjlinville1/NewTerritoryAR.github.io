@@ -5,6 +5,9 @@ XR.XrController.configure({imageTargets:['Anson','Cori','Daniel','Eleanor','Jess
 var video = document.getElementById("currentVideo");
 
 
+
+
+
 AFRAME.registerComponent('button-changer', {
 	init:function(){
 		const visible = {true}
