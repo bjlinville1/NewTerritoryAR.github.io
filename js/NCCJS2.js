@@ -19,3 +19,11 @@ AFRAME.registerComponent('target-manager', {
 	})
   }
 })
+
+
+AFRAME.registerComponent('button-changer', {
+	init:function(){
+		const visible = {true}
+		this.
+	}
+})
