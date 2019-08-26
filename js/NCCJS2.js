@@ -1,6 +1,6 @@
-XR.XrController.configure({disableWorldTracking:true});
+XR.XrController.configure({disableWorldTracking:true})
 
-XR.XrController.configure({imageTargets:['Anson','Cori','Daniel','Eleanor','Jessica','Joshua']});
+XR.XrController.configure({imageTargets:['Anson','Cori','Daniel','Eleanor','Jessica','Joshua']})
 
 var video = document.getElementById("currentVideo");
 
