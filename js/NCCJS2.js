@@ -23,7 +23,6 @@ var button3 = document.getElementById('button3');
 
 AFRAME.registerComponent('button-changer', {
 	init:function(){
-		const visible = {true}
 		this.el.sceneEl.addEventListener('xrimagefound', e => {
 			visible[xrimagefound.detail.name] = true
 
