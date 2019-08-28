@@ -59,12 +59,12 @@
       >
     </a-entity>
 
-    <!-- <a-entity 
+    <a-entity 
       xrextras-named-image-target="name: Cori"
       xrextras-play-video="video: #currentVideo; canstop: true"
       geometry="primitive: plane; height: 0.85; width: 1.38;"
       >
-    </a-entity> -->
+    </a-entity> 
 
     <a-entity 
       xrextras-named-image-target="name: Daniel"
@@ -98,8 +98,61 @@
     </a-entity>
 
 
+<div id="allButtons">
+      <button type="button" id=button1 onclick="changeVideo1()" style= "
+        -webkit-appearance: none;
+        border-radius: 2;
+        background-color: white;
+        position: fixed;
+        font-size: 4;
+        display: inline-block;
+        bottom: 2%; 
+        height: 50px;
+        width: 41.6px;
+        left: 20%;
+        text-align: center;
+        z-index: 1;">
+        Video 1
+      </button>
+     
+      <button type="button" id=button2 onclick="changeVideo2()"  style= "
+       -webkit-appearance: none;
+        border-radius: 2;
+        background-color: white;
+        position: fixed;
+        font-size: 4;
+        display: inline-block;
+        bottom: 2%; 
+        height: 50px;
+        width: 41.6px;
+        left: 40%;
+        text-align: center;
+        z-index: 1;">
+        Video 2
+      </button>
+     
+      <button type="button" id=button3 onclick="changeVideo3()" style= "
+        -webkit-appearance: none;
+        border-radius: 2;
+        background-color: white;
+        position: fixed;
+        font-size: 4;
+        display: inline-block;
+        bottom: 2%; 
+        height: 50px;
+        width: 41.6px;
+        right: 22%;
+        text-align: center;
+        z-index: 1;">
+        Video 3
+        
+      </button>
+      </div>
+
+  </a-scene>
 
 
   </a-scene>
+
 
 </body>
