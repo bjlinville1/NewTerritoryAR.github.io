@@ -19,48 +19,44 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
-    <!-- load carousel -->
+  <!-- load and wire up carousel -->
   <script type="application/javascript">
 
     document.addEventListener('DOMContentLoaded', function() {
       var elems = document.querySelectorAll('.carousel');
       var instances = M.Carousel.init(elems);
+
+      var entity = document.getElementById('player');
     });
 
     function button1Click() {
       var videoPlayer = document.getElementById('vitamixVideo');
       videoPlayer.src = 'https://video.wixstatic.com/video/53058a_b280977578c94eaf9d34989a6a194ae6/1080p/mp4/file.mp4'
-      alert(videoPlayer.src);
     }
 
     function button2Click() {
       var videoPlayer = document.getElementById('vitamixVideo');
       videoPlayer.src = 'https://video.wixstatic.com/video/53058a_8db85fa4d49a4f84831a102adca8dcf0/1080p/mp4/file.mp4'
-      alert(videoPlayer.src);
     }
 
     function button3Click() {
       var videoPlayer = document.getElementById('vitamixVideo');
       videoPlayer.src = 'https://video.wixstatic.com/video/53058a_bc6481ce5d18468cb30cc3e13bcb9d40/1080p/mp4/file.mp4'
-      alert('button 3');
     }
 
     function button4Click() {
       var videoPlayer = document.getElementById('vitamixVideo');
       videoPlayer.src = 'https://video.wixstatic.com/video/53058a_2ad1389c47eb4406a98839948215b0b0/1080p/mp4/file.mp4'
-      alert('button 4');
     }
 
     function button5Click() {
       var videoPlayer = document.getElementById('vitamixVideo');
       videoPlayer.src = 'https://video.wixstatic.com/video/53058a_c82614ee80de47c3811b947d563f97c7/1080p/mp4/file.mp4'
-      alert('button 5');
     }
 
     function button6Click() {
       var videoPlayer = document.getElementById('vitamixVideo');
       videoPlayer.src = 'https://video.wixstatic.com/video/53058a_a45a508ea7374576a060bae2c040b7ca/1080p/mp4/file.mp4'
-      alert('button 6');
     }
 
   </script>
@@ -68,22 +64,22 @@
 
 <body>
   <div class="carousel" style= "position: fixed; bottom: 0; z-index: 1200;">
-    <button id="vid1-btn" class="carousel-item" onclick="button1Click()">
+    <button id="vid1-btn" class="waves-effect waves-light btn carousel-item" onclick="button1Click()">
       <span>Almond Butter</span>
     </button>
-    <button id="vid2-btn" class="carousel-item" onclick="button2Click()">
+    <button id="vid2-btn" class="waves-effect waves-light btn carousel-item" onclick="button2Click()">
       <span>Caramel Espresso Frappe</span>
     </button>
-    <button id="vid3-btn" class="carousel-item" onclick="button3Click()">
+    <button id="vid3-btn" class="waves-effect waves-light btn carousel-item" onclick="button3Click()">
       <span>Mango Coconut Sorbet</span>
     </button>
-    <button id="vid4-btn" class="carousel-item" onclick="button4Click()">
+    <button id="vid4-btn" class="waves-effect waves-light btn carousel-item" onclick="button4Click()">
       <span>Thyme for Tomato Soup</span>
     </button>
-    <button id="vid5-btn" class="carousel-item" onclick="button5Click()">
+    <button id="vid5-btn" class="waves-effect waves-light btn carousel-item" onclick="button5Click()">
       <span>Going Green Smoothie</span>
     </button>
-    <button id="vid6-btn" class="carousel-item" onclick="button5Click()">
+    <button id="vid6-btn" class="waves-effect waves-light btn carousel-item" onclick="button5Click()">
       <span>Delicious Dips</span>
     </button>
   </div>
@@ -102,6 +98,55 @@
         loop="false"
         src = "https://video.wixstatic.com/video/53058a_7193749490e4499ba4edb5852a5d2d10/1080p/mp4/file.mp4">
       </video>
+      <!-- Almond butter video -->
+      <video
+        id="vitamixVideo"
+        autoplay="true"
+        crossorigin="anonymous"
+        loop="false"
+        src = "https://video.wixstatic.com/video/53058a_b280977578c94eaf9d34989a6a194ae6/1080p/mp4/file.mp4">
+      </video>
+      <!-- Caramel Espresso Frappe video -->
+      <video
+        id="vitamixVideo"
+        autoplay="true"
+        crossorigin="anonymous"
+        loop="false"
+        src = "https://video.wixstatic.com/video/53058a_b280977578c94eaf9d34989a6a194ae6/1080p/mp4/file.mp4">
+      </video>
+      <!-- Mango Coconut Sorbet video -->
+      <video
+        id="vitamixVideo"
+        autoplay="true"
+        crossorigin="anonymous"
+        loop="false"
+        src = "https://video.wixstatic.com/video/53058a_b280977578c94eaf9d34989a6a194ae6/1080p/mp4/file.mp4">
+      </video>
+      <!-- Thyme for Tomato Soup video -->
+      <video
+        id="vitamixVideo"
+        autoplay="true"
+        crossorigin="anonymous"
+        loop="false"
+        src = "https://video.wixstatic.com/video/53058a_b280977578c94eaf9d34989a6a194ae6/1080p/mp4/file.mp4">
+      </video>
+      <!-- Going Green Smoothie video -->
+      <video
+        id="vitamixVideo"
+        autoplay="true"
+        crossorigin="anonymous"
+        loop="false"
+        src = "https://video.wixstatic.com/video/53058a_b280977578c94eaf9d34989a6a194ae6/1080p/mp4/file.mp4">
+      </video>
+      <!-- Delicious Dips video -->
+      <video
+        id="vitamixVideo"
+        autoplay="true"
+        crossorigin="anonymous"
+        loop="false"
+        src = "https://video.wixstatic.com/video/53058a_b280977578c94eaf9d34989a6a194ae6/1080p/mp4/file.mp4">
+      </video>
+
     </a-assets>
 
     <a-camera
