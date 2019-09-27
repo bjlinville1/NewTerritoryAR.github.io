@@ -25,13 +25,14 @@
     document.addEventListener('DOMContentLoaded', function() {
       var elems = document.querySelectorAll('.carousel');
       var instances = M.Carousel.init(elems);
-
-      var entity = document.getElementById('player');
     });
 
     function almondClick() {
-      var videoPlayer = document.getElementById('vitamixVideo');
-      videoPlayer.src = 'https://video.wixstatic.com/video/53058a_b280977578c94eaf9d34989a6a194ae6/1080p/mp4/file.mp4'
+      // var videoPlayer = document.getElementById('vitamixVideo');
+      // videoPlayer.src = 'https://video.wixstatic.com/video/53058a_b280977578c94eaf9d34989a6a194ae6/1080p/mp4/file.mp4'
+      var entity = document.getElementById('player');
+      var videoSettings = entity.getAttribute('xrextras-play-video');
+      videoSettings.video = '#almondVideo';
     }
 
     function caramelClick() {
@@ -100,7 +101,7 @@
       </video>
       <!-- Almond butter video -->
       <video
-        id="vitamixVideo"
+        id="almondVideo"
         autoplay="true"
         crossorigin="anonymous"
         loop="false"
@@ -108,7 +109,7 @@
       </video>
       <!-- Caramel Espresso Frappe video -->
       <video
-        id="vitamixVideo"
+        id="caramelVideo"
         autoplay="true"
         crossorigin="anonymous"
         loop="false"
@@ -116,7 +117,7 @@
       </video>
       <!-- Mango Coconut Sorbet video -->
       <video
-        id="vitamixVideo"
+        id="mangoVideo"
         autoplay="true"
         crossorigin="anonymous"
         loop="false"
@@ -124,7 +125,7 @@
       </video>
       <!-- Thyme for Tomato Soup video -->
       <video
-        id="vitamixVideo"
+        id="thymeVideo"
         autoplay="true"
         crossorigin="anonymous"
         loop="false"
@@ -132,7 +133,7 @@
       </video>
       <!-- Going Green Smoothie video -->
       <video
-        id="vitamixVideo"
+        id="greenVideo"
         autoplay="true"
         crossorigin="anonymous"
         loop="false"
@@ -140,7 +141,7 @@
       </video>
       <!-- Delicious Dips video -->
       <video
-        id="vitamixVideo"
+        id="dipsVideo"
         autoplay="true"
         crossorigin="anonymous"
         loop="false"
@@ -156,6 +157,7 @@
     </a-camera>
 
     <a-entity
+      id="player"
       xrextras-named-image-target="name: vitamixtarget"
       xrextras-play-video="video: #vitamixVideo; canstop: true"
       geometry="primitive: plane; height:0.85 ; width: 1.38;" />
