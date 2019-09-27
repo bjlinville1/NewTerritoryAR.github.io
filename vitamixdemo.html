@@ -19,6 +19,51 @@
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
   <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
 
+  <style>
+    .carousel {
+      height: 150px;
+    }
+
+    .carousel .carousel-item {
+      height: 140px;
+      width: 140px;
+      font-size: 1.1em;
+      line-height: 28px;
+      font-weight: 600;
+      color: #222;
+    }
+
+    #almond-btn {
+      background-image: url('image_files/peanut-butter.jpg');
+      background-size: 140px 140px;
+    }
+
+    #caramel-btn {
+      background-image: url('image_files/caramel-espresso-frappe.jpg');
+      background-size: 140px 140px;
+    }
+
+    #mango-btn {
+      background-image: url('image_files/mango-sorbet.jpg');
+      background-size: 140px 140px;
+    }
+
+    #thyme-btn {
+      background-image: url('image_files/thyme-tomato-soup.jpg');
+      background-size: 140px 140px;
+    }
+
+    #green-btn {
+      background-image: url('image_files/green-smoothie.jpg');
+      background-size: 140px 140px;
+    }
+
+    #dips-btn {
+      background-image: url('image_files/edamame-dip.jpg');
+      background-size: 140px 140px;
+    }
+  </style>
+
   <!-- load and wire up carousel -->
   <script type="application/javascript">
 
@@ -80,22 +125,22 @@
 
 <body>
   <div class="carousel" style= "position: fixed; bottom: 0; z-index: 1200;">
-    <button class="waves-effect waves-light btn carousel-item" onclick="almondClick()">
+    <button id="almond-btn" class="waves-effect waves-light btn carousel-item" onclick="almondClick()">
       <span>Almond Butter</span>
     </button>
-    <button class="waves-effect waves-light btn carousel-item" onclick="caramelClick()">
+    <button id="caramel-btn" class="waves-effect waves-light btn carousel-item" onclick="caramelClick()">
       <span>Caramel Espresso Frappe</span>
     </button>
-    <button class="waves-effect waves-light btn carousel-item" onclick="mangoClick()">
+    <button id="mango-btn" class="waves-effect waves-light btn carousel-item" onclick="mangoClick()">
       <span>Mango Coconut Sorbet</span>
     </button>
-    <button class="waves-effect waves-light btn carousel-item" onclick="thymeClick()">
+    <button id="thyme-btn" class="waves-effect waves-light btn carousel-item" onclick="thymeClick()">
       <span>Thyme for Tomato Soup</span>
     </button>
-    <button class="waves-effect waves-light btn carousel-item" onclick="greenClick()">
+    <button id="green-btn" class="waves-effect waves-light btn carousel-item" onclick="greenClick()">
       <span>Going Green Smoothie</span>
     </button>
-    <button class="waves-effect waves-light btn carousel-item" onclick="dipsClick()">
+    <button id="dips-btn" class="waves-effect waves-light btn carousel-item" onclick="dipsClick()">
       <span>Delicious Dips</span>
     </button>
   </div>
