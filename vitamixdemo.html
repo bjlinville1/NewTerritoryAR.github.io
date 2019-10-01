@@ -120,11 +120,11 @@
       init: function () {
         el = this.el;
 
-        this.el.setAttribute('material','src', currentVideo);
-
         const object3D = this.el.object3D;
         const name = this.data.name;
         object3D.visible = false;
+
+        this.el.setAttribute('material','src', currentVideo);
 
         const showImage = ({detail}) => {
           if (name != detail.name) { return; }
@@ -133,13 +133,15 @@
           object3D.quaternion.copy(detail.rotation);
           object3D.scale.set(detail.scale, detail.scale, detail.scale);
           object3D.visible = true;
+
+          currentVideo.play();
         };
 
         const hideImage = ({detail}) => {
           if (name != detail.name) { return; }
 
           object3D.visible = false;
-          currentVideo.stop();
+          currentVideo.pause();
         }
 
         this.el.sceneEl.addEventListener('xrimagefound', showImage);
