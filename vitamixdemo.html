@@ -72,8 +72,6 @@
     var el = null;
 
     document.addEventListener('DOMContentLoaded', function() {
-      currentVideo = document.getElementById('vitamixVideo');
-
       var elems = document.querySelectorAll('.carousel');
       var instances = M.Carousel.init(elems);
     });
@@ -87,7 +85,6 @@
 
       if (el != null) {
         el.setAttribute('material', 'src', currentVideo);
-        alert('update source');
       }
 
       if (currentVideo != null) {
@@ -130,7 +127,10 @@
         const name = this.data.name;
         object3D.visible = false;
 
+        currentVideo = document.getElementById('vitamixVideo');
+
         this.el.setAttribute('material','src', currentVideo);
+        currentVideo.play();
 
         const showImage = ({detail}) => {
           if (name != detail.name) { return; }
@@ -140,9 +140,7 @@
           object3D.scale.set(detail.scale, detail.scale, detail.scale);
           object3D.visible = true;
 
-          currentVideo.play();
-
-          alert('show and play!');
+          alert('show');
         };
 
         const hideImage = ({detail}) => {
@@ -150,6 +148,8 @@
 
           object3D.visible = false;
           currentVideo.pause();
+
+          alert('hide');
         }
 
         this.el.sceneEl.addEventListener('xrimagefound', showImage);
