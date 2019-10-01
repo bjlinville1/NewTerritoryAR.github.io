@@ -72,54 +72,79 @@
       var instances = M.Carousel.init(elems);
     });
 
+    var currentVideo = document.getElementById('#vitamixVideo');
+    var el = null;
+
+    function switchToVideo(newVideo) {
+      if (currentVideo != null) {
+        currentVideo.pause();
+      }
+
+      currentVideo = document.getElementById(newVideo);
+
+      if (el != null) {
+        el.setAttribute('material', 'src', currentVideo);
+      }
+    }
+
     function almondClick() {
-      // var videoPlayer = document.getElementById('vitamixVideo');
-      // videoPlayer.src = 'https://video.wixstatic.com/video/53058a_b280977578c94eaf9d34989a6a194ae6/1080p/mp4/file.mp4'
-      var entity = document.getElementById('player');
-      var videoSettings = entity.getAttribute('xrextras-play-video');
-      videoSettings.video = '#almondVideo';
+      switchToVideo('#almondVideo');
     }
 
     function caramelClick() {
-      // var videoPlayer = document.getElementById('vitamixVideo');
-      // videoPlayer.src = 'https://video.wixstatic.com/video/53058a_8db85fa4d49a4f84831a102adca8dcf0/1080p/mp4/file.mp4'
-      var entity = document.getElementById('player');
-      var videoSettings = entity.getAttribute('xrextras-play-video');
-      videoSettings.video = '#caramelVideo';
+      switchToVideo('#caramelVideo');
     }
 
     function mangoClick() {
-      // var videoPlayer = document.getElementById('vitamixVideo');
-      // videoPlayer.src = 'https://video.wixstatic.com/video/53058a_bc6481ce5d18468cb30cc3e13bcb9d40/1080p/mp4/file.mp4'
-      var entity = document.getElementById('player');
-      var videoSettings = entity.getAttribute('xrextras-play-video');
-      videoSettings.video = '#mangoVideo';
+      switchToVideo('#mangoVideo');
     }
 
     function thymeClick() {
-      // var videoPlayer = document.getElementById('vitamixVideo');
-      // videoPlayer.src = 'https://video.wixstatic.com/video/53058a_2ad1389c47eb4406a98839948215b0b0/1080p/mp4/file.mp4'
-      var entity = document.getElementById('player');
-      var videoSettings = entity.getAttribute('xrextras-play-video');
-      videoSettings.video = '#thymeVideo';
+      switchToVideo('#thymeVideo');
     }
 
     function greenClick() {
-      // var videoPlayer = document.getElementById('vitamixVideo');
-      // videoPlayer.src = 'https://video.wixstatic.com/video/53058a_c82614ee80de47c3811b947d563f97c7/1080p/mp4/file.mp4'
-      var entity = document.getElementById('player');
-      var videoSettings = entity.getAttribute('xrextras-play-video');
-      videoSettings.video = '#greenVideo';
+      switchToVideo('#greenVideo');
     }
 
     function dipsClick() {
-      // var videoPlayer = document.getElementById('vitamixVideo');
-      // videoPlayer.src = 'https://video.wixstatic.com/video/53058a_a45a508ea7374576a060bae2c040b7ca/1080p/mp4/file.mp4'
-      var entity = document.getElementById('player');
-      var videoSettings = entity.getAttribute('xrextras-play-video');
-      videoSettings.video = '#dipsVideo';
+      switchToVideo('#dipsVideo');
     }
 
+    AFRAME.registerComponent('multi-video-target', {
+      schema: {
+        name: { type: 'string' }
+      },
+      init: function () {
+        el = this.el;
+
+        this.el.setAttribute('material','src', currentVideo);
+
+        const object3D = this.el.object3D;
+        const name = this.data.name;
+        object3D.visible = false;
+
+        const showImage = ({detail}) => {
+          if (name != detail.name) { return; }
+
+          object3D.position.copy(detail.position);
+          object3D.quaternion.copy(detail.rotation);
+          object3D.scale.set(detail.scale, detail.scale, detail.scale);
+          object3D.visible = true;
+        };
+
+        const hideImage = ({detail}) => {
+          if (name != detail.name) { return; }
+
+          object3D.visible = false;
+          currentVideo.stop();
+        }
+
+        this.el.sceneEl.addEventListener('xrimagefound', showImage);
+        this.el.sceneEl.addEventListener('xrimageupdated', showImage);
+        this.el.sceneEl.addEventListener('xrimagelost', hideImage);
+      }
+    })
   </script>
 </head>
 
@@ -219,8 +244,9 @@
     <a-entity
       id="player"
       xrextras-named-image-target="name: vitamixtarget"
-      xrextras-play-video="video: #vitamixVideo; canstop: true"
+      multi-video-target="name: vitamix"
       geometry="primitive: plane; height:0.85 ; width: 1.38;" />
+      <!-- xrextras-play-video="video: #vitamixVideo; canstop: true" -->
 
     <a-light type="directional" intensity="0.5" position="1 1 1"></a-light>
 
