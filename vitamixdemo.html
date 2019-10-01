@@ -73,6 +73,7 @@
 
     document.addEventListener('DOMContentLoaded', function() {
       currentVideo = document.getElementById('vitamixVideo');
+
       var elems = document.querySelectorAll('.carousel');
       var instances = M.Carousel.init(elems);
     });
@@ -86,33 +87,36 @@
 
       if (el != null) {
         el.setAttribute('material', 'src', currentVideo);
+        alert('update source');
       }
 
-      currentVideo.play()
+      if (currentVideo != null) {
+        currentVideo.play();
+      }
     }
 
     function almondClick() {
-      switchToVideo('#almondVideo');
+      switchToVideo('almondVideo');
     }
 
     function caramelClick() {
-      switchToVideo('#caramelVideo');
+      switchToVideo('caramelVideo');
     }
 
     function mangoClick() {
-      switchToVideo('#mangoVideo');
+      switchToVideo('mangoVideo');
     }
 
     function thymeClick() {
-      switchToVideo('#thymeVideo');
+      switchToVideo('thymeVideo');
     }
 
     function greenClick() {
-      switchToVideo('#greenVideo');
+      switchToVideo('greenVideo');
     }
 
     function dipsClick() {
-      switchToVideo('#dipsVideo');
+      switchToVideo('dipsVideo');
     }
 
     AFRAME.registerComponent('multi-video-target', {
@@ -137,6 +141,8 @@
           object3D.visible = true;
 
           currentVideo.play();
+
+          alert('show and play!');
         };
 
         const hideImage = ({detail}) => {
