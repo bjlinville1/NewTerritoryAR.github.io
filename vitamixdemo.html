@@ -32,6 +32,9 @@
       line-height: 28px;
       font-weight: 600;
       color: #222;
+      text-transform: uppercase;
+      display: flex;
+      align-items: center;
     }
 
     #almond-btn {
@@ -70,6 +73,7 @@
 
     var currentVideo;
     var el = null;
+    var shown = false;
 
     document.addEventListener('DOMContentLoaded', function() {
       var elems = document.querySelectorAll('.carousel');
@@ -87,7 +91,7 @@
         el.setAttribute('material', 'src', currentVideo);
       }
 
-      if (currentVideo != null) {
+      if (shown && currentVideo != null) {
         currentVideo.play();
       }
     }
@@ -128,9 +132,7 @@
         object3D.visible = false;
 
         currentVideo = document.getElementById('vitamixVideo');
-
         this.el.setAttribute('material','src', currentVideo);
-        currentVideo.play();
 
         const showImage = ({detail}) => {
           if (name != detail.name) { return; }
@@ -140,7 +142,8 @@
           object3D.scale.set(detail.scale, detail.scale, detail.scale);
           object3D.visible = true;
 
-          alert('show');
+          shown = true;
+          currentVideo.play();
         };
 
         const hideImage = ({detail}) => {
@@ -149,8 +152,8 @@
           object3D.visible = false;
           currentVideo.pause();
 
-          alert('hide');
-        }
+          shown = false;
+        };
 
         this.el.sceneEl.addEventListener('xrimagefound', showImage);
         this.el.sceneEl.addEventListener('xrimageupdated', showImage);
@@ -162,22 +165,22 @@
 
 <body>
   <div class="carousel" style= "position: fixed; bottom: 0; z-index: 1200;">
-    <button id="almond-btn" class="waves-effect waves-light btn carousel-item" onclick="almondClick()">
+    <button id="almond-btn" class="btn carousel-item" onclick="almondClick()">
       <span>Almond Butter</span>
     </button>
-    <button id="caramel-btn" class="waves-effect waves-light btn carousel-item" onclick="caramelClick()">
+    <button id="caramel-btn" class="btn carousel-item" onclick="caramelClick()">
       <span>Caramel Espresso Frappe</span>
     </button>
-    <button id="mango-btn" class="waves-effect waves-light btn carousel-item" onclick="mangoClick()">
+    <button id="mango-btn" class="btn carousel-item" onclick="mangoClick()">
       <span>Mango Coconut Sorbet</span>
     </button>
-    <button id="thyme-btn" class="waves-effect waves-light btn carousel-item" onclick="thymeClick()">
+    <button id="thyme-btn" class="btn carousel-item" onclick="thymeClick()">
       <span>Thyme for Tomato Soup</span>
     </button>
-    <button id="green-btn" class="waves-effect waves-light btn carousel-item" onclick="greenClick()">
+    <button id="green-btn" class="btn carousel-item" onclick="greenClick()">
       <span>Going Green Smoothie</span>
     </button>
-    <button id="dips-btn" class="waves-effect waves-light btn carousel-item" onclick="dipsClick()">
+    <button id="dips-btn" class="btn carousel-item" onclick="dipsClick()">
       <span>Delicious Dips</span>
     </button>
   </div>
@@ -255,9 +258,9 @@
 
     <a-entity
       id="player"
-      xrextras-named-image-target="name: vitamixtarget"
-      multi-video-target="name: vitamix"
+      multi-video-target="name: vitamixtarget"
       geometry="primitive: plane; height:0.85 ; width: 1.38;" />
+      <!-- xrextras-named-image-target="name: vitamixtarget" -->
       <!-- xrextras-play-video="video: #vitamixVideo; canstop: true" -->
 
     <a-light type="directional" intensity="0.5" position="1 1 1"></a-light>
