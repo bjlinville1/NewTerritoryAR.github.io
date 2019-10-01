@@ -67,13 +67,14 @@
   <!-- load and wire up carousel -->
   <script type="application/javascript">
 
+    var currentVideo;
+    var el = null;
+
     document.addEventListener('DOMContentLoaded', function() {
+      currentVideo = document.getElementById('#vitamixVideo');
       var elems = document.querySelectorAll('.carousel');
       var instances = M.Carousel.init(elems);
     });
-
-    var currentVideo = document.getElementById('#vitamixVideo');
-    var el = null;
 
     function switchToVideo(newVideo) {
       if (currentVideo != null) {
