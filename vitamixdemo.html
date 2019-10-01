@@ -93,6 +93,7 @@
 
       if (shown && currentVideo != null) {
         currentVideo.play();
+        currentVideo.currentTime = 0;
       }
     }
 
@@ -134,19 +135,22 @@
         currentVideo = document.getElementById('vitamixVideo');
         this.el.setAttribute('material','src', currentVideo);
 
-        const updateImage = () => {
+        const updateImage = ({ detail }) => {
+          if (name != detail.name) { return; }
+
           object3D.position.copy(detail.position);
           object3D.quaternion.copy(detail.rotation);
           object3D.scale.set(detail.scale, detail.scale, detail.scale);
           object3D.visible = true;
         };
 
-        const showImage = ({detail}) => {
+        const showImage = ({ detail }) => {
           if (name != detail.name) { return; }
 
-          updateImage();
+          updateImage({ detail });
 
           shown = true;
+
           currentVideo.play();
         };
 
