@@ -134,13 +134,17 @@
         currentVideo = document.getElementById('vitamixVideo');
         this.el.setAttribute('material','src', currentVideo);
 
-        const showImage = ({detail}) => {
-          if (name != detail.name) { return; }
-
+        const updateImage = () => {
           object3D.position.copy(detail.position);
           object3D.quaternion.copy(detail.rotation);
           object3D.scale.set(detail.scale, detail.scale, detail.scale);
           object3D.visible = true;
+        };
+
+        const showImage = ({detail}) => {
+          if (name != detail.name) { return; }
+
+          updateImage();
 
           shown = true;
           currentVideo.play();
@@ -156,7 +160,7 @@
         };
 
         this.el.sceneEl.addEventListener('xrimagefound', showImage);
-        this.el.sceneEl.addEventListener('xrimageupdated', showImage);
+        this.el.sceneEl.addEventListener('xrimageupdated', updateImage);
         this.el.sceneEl.addEventListener('xrimagelost', hideImage);
       }
     })
